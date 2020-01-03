@@ -7,7 +7,11 @@ const connectDB = async () => {
       useFindAndModify: false,
       useUnifiedTopology: true
     });
+    console.log(`MongoDB connection at: ${conn.connection.host}`);
   } catch (error) {
     console.log("The error to the connect db was " + error);
+    process.exit(1);
   }
 };
+
+module.exports = connectDB;
